@@ -1,0 +1,18 @@
+#!/bin/sh
+
+mute="$(pulsemixer --get-mute)"
+vol="$(pulsemixer --get-volume | awk '{print $1}')"
+if [[ $mute == 1 ]]; then
+    i='ﱝ'
+    vol='0'
+elif [[ $mute == 0 ]]; then
+    case ${vol%?} in
+           10) i='' ;;
+        [6-9]) i='墳' ;;
+        [3-5]) i='奔' ;;
+            *) i=''
+    esac
+fi
+
+printf "%s%%\n" "$i  $vol"
+
