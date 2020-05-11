@@ -89,7 +89,7 @@ unsigned int tabspaces = 8;
  * 0xee adds wee bit of transparency.
  * Play with the value to get desired transparency.
  */
-unsigned int alpha = 0xee; 
+unsigned int alpha = 0xff; 
 
 /* Terminal colors (16 first used in escape sequence) */
  static const char *colorname[] = {
