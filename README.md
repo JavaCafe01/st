@@ -30,8 +30,20 @@
 Don't forget to create an `autostart.sh` file in the `~/.dwm` directory. For example,
 ```bash
 #! /bin/bash
+
+#  Compositor
 picom &
+
+# Wallpaper
 nitrogen --restore &
+
+# Status Bar
 dwmblocks &
-pulseaudio --start -D &
+
+# To update volume and brightness labels
+pkill -RTMIN+10 dwmblocks &
+
+# For extra bitmap fonts
+xset +fp /home/javacafe01/.local/share/fonts
+xset fp rehash
 ```
