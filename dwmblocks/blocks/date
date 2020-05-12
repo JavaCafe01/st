@@ -1,4 +1,0 @@
-#!/bin/sh
-
-date="$(LC_ALL=C date "+%a %b %d")"
-printf "%s\n" "  $date"
