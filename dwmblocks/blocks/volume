@@ -1,11 +1,11 @@
 #!/bin/sh
 
-mute="$(pulsemixer --get-mute)"
-vol="$(pulsemixer --get-volume | awk '{print $1}')"
-if [[ $mute == 1 ]]; then
+mute="$(pamixer --get-mute)"
+vol="$(pamixer --get-volume | awk '{print $1}')"
+if [ $mute = true ]; then
     i='ﱝ'
-    vol='0'
-elif [[ $mute == 0 ]]; then
+    vol="0"
+elif [ $mute = false ]; then
     case ${vol%?} in
            10) i='' ;;
         [6-9]) i='墳' ;;
@@ -14,5 +14,5 @@ elif [[ $mute == 0 ]]; then
     esac
 fi
 
-printf "%s%%\n" "$i  $vol"
+printf "%s%%\n" "$i $vol"
 

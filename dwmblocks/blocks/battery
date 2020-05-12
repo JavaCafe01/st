@@ -12,4 +12,4 @@ case $status in
             *) i=''
        esac
 esac
-printf "%s%%\n" "^$i  $battery"
+printf "%s%%\n" "$i $battery"

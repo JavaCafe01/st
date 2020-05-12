@@ -5,11 +5,11 @@ static const Block blocks[] = {
 
     {"", "~/.suckless/dwmblocks/blocks/net", 10, 0},
 
-  //{"", "~/.suckless/dwmblocks/blocks/battery", 5, 0},
+    {"", "~/.suckless/dwmblocks/blocks/battery", 5, 0},
 
-  //{"", "~/.suckless/dwmblocks/blocks/backlight", 0, 11},
+    {"", "~/.suckless/dwmblocks/blocks/backlight", 0, 11},
 
-    {"", "~/.suckless/dwmblocks/blocks/volume", 1, 10},
+    {"", "~/.suckless/dwmblocks/blocks/volume", 0, 11},
 
     {"", "~/.suckless/dwmblocks/blocks/date", 60, 0},
 
