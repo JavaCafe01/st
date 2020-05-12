@@ -7,9 +7,9 @@ static const Block blocks[] = {
 
     {"", "~/.suckless/dwmblocks/blocks/battery", 5, 0},
 
-    {"", "~/.suckless/dwmblocks/blocks/backlight", 0, 11},
+    {"", "~/.suckless/dwmblocks/blocks/backlight", 0, 10},
 
-    {"", "~/.suckless/dwmblocks/blocks/volume", 0, 11},
+    {"", "~/.suckless/dwmblocks/blocks/volume", 0, 10},
 
     {"", "~/.suckless/dwmblocks/blocks/date", 60, 0},
 

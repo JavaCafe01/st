@@ -105,6 +105,9 @@ static const char *webcmd[]      = { "firefox", NULL };
 static const char *termcmd[]     = { "st", NULL };
 static const char *filecmd[]     = { "thunar", NULL};
 
+/* For Built in keys */
+#include <X11/XF86keysym.h>
+
 static Key keys[] = {
 	/* modifier             key        function        argument */
 	{ MODKEY,               XK_d,      spawn,          {.v = dmenucmd } },
@@ -145,6 +148,16 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,     XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,     XK_period, tagmon,         {.i = +1 } },
 	
+
+    /* Audio and Brightness Keys*/
+    { 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pamixer --allow-boost -i 2; pkill -RTMIN+10 dwmblocks") },
+	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pamixer --allow-boost -d 2; pkill -RTMIN+10 dwmblocks") },
+    { 0, XF86XK_AudioMute,	        spawn,		SHCMD("pamixer -t; pkill -RTMIN+10 dwmblocks") },
+    { 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("xbacklight -inc 10; pkill -RTMIN+10 dwmblocks") },
+    { 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("xbacklight -dec 10; pkill -RTMIN+10 dwmblocks") },
+
+
+
 
     
 	TAGKEYS(                  XK_1,          0)
