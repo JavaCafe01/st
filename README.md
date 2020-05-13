@@ -1,16 +1,17 @@
 <p align="center">
-  <img width="15%" src="https://github.com/javacafe01.png" />
+<img width="15%" src="https://github.com/javacafe01.png" />
 </p>
 
 <p align="center">
-  <b>Suckless - software that sucks less</b>
+<b>Suckless - software that sucks less</b>
 </p>
 
 <p align="center">
-  <b>👻 Gokul's dwm Setup 👻</b>
+<b>👻 Gokul's dwm Setup 👻</b>
 </p>
 
-<img src="https://i.redd.it/4q4srdypk3y41.png" alt="img" align="right" width="400px">
+<img src="https://i.imgur.com/WVncGVL.png" alt="img" align="right" width="400px">
+
 
 ## System Info
 
@@ -28,22 +29,22 @@
 ## Autostart
 
 Don't forget to create an `autostart.sh` file in the `~/.dwm` directory. For example,
-```bash
+    ```bash
 #! /bin/bash
 
 #  Compositor
-picom &
+    picom &
 
 # Wallpaper
-nitrogen --restore &
+    nitrogen --restore &
 
 # Status Bar
-dwmblocks &
+    dwmblocks &
 
 # To update volume and brightness labels
-pkill -RTMIN+10 dwmblocks &
+    pkill -RTMIN+10 dwmblocks
 
 # For extra bitmap fonts
-xset +fp /home/javacafe01/.local/share/fonts
-xset fp rehash
-```
+    xset +fp /home/javacafe01/.local/share/fonts
+    xset fp rehash
+    ```
