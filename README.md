@@ -29,7 +29,7 @@
 ## Autostart
 
 Don't forget to create an `autostart.sh` file in the `~/.dwm` directory. For example,
-    ```bash
+```bash
 #! /bin/bash
 
 #  Compositor
