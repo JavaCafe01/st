@@ -3,10 +3,10 @@
  * Arch repos and is listed as a dependency for this build. JoyPixels is also
  * a hard dependency and makes colored fonts and emojis possible.
  */
-static char *font = "Mononoki Nerd Font:pixelsize=14:antialias=true:autohint=true";
+static char *font =    "Mononoki Nerd Font:pixelsize=14:antialias=true:autohint=true";
 static char *font2[] = {
+ 	"Wuncon Siji",
 	"Hack:pixelsize=14:antialias=true:autohint=true",
-	"JoyPixels:pixelsize=14:antialias=true:autohint=true",
 };
 static int borderpx = 15;
 
@@ -89,43 +89,44 @@ unsigned int tabspaces = 8;
  * 0xee adds wee bit of transparency.
  * Play with the value to get desired transparency.
  */
-unsigned int alpha = 0xd2; 
+unsigned int alpha = 0xff; 
 
-/* Terminal colors (16 first used in escape sequence) */
- static const char *colorname[] = {
- 	/* 8 normal colors */
-	"#3b4252", /* black   */
-	"#bf616a", /* red     */
-	"#a3be8c", /* green   */
-	"#ebcb8b", /* yellow  */
-	"#81a1c1", /* blue    */
-	"#b48ead", /* magenta */
-	"#88c0d0", /* cyan    */
-	"#e5e9f0", /* white   */
- 
- 	/* 8 bright colors */
-	"#4c566a", /* black   */
-	"#bf616a", /* red     */
-	"#a3be8c", /* green   */
-	"#ebcb8b", /* yellow  */
-	"#81a1c1", /* blue    */
-	"#b48ead", /* magenta */
-	"#8fbcbb", /* cyan    */
-	"#eceff4", /* white   */
- 
- 	[255] = 0,
- 
- 	/* more colors can be added after 255 to use with DefaultXX */
-	"#2e3440", /* background */
-	"#d8dee9", /* foreground */
- };
+
+
+  /* Terminal colors (16 first used in escape sequence) */
+static const char *colorname[] = {
+
+  /* 8 normal colors */
+  [0] = "#1d2021", /* black   */
+  [1] = "#4e6168", /* red     */
+  [2] = "#564e4a", /* green   */
+  [3] = "#6e534b", /* yellow  */
+  [4] = "#9a6656", /* blue    */
+  [5] = "#b4644c", /* magenta */
+  [6] = "#c88f72", /* cyan    */
+  [7] = "#a9c0c2", /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#768687", /* black   */
+  [9]  = "#4e6168", /* red     */
+  [10] = "#564e4a", /* green   */
+  [11] = "#6e534b", /* yellow  */
+  [12] = "#9a6656", /* blue    */
+  [13] = "#b4644c", /* magenta */
+  [14] = "#c88f72", /* cyan    */
+  [15] = "#a9c0c2", /* white   */
+
+  /* special colors */
+  [256] = "#1d2021", /* background */
+  [257] = "#a9c0c2", /* foreground */
+};
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
+ * foreground, background, cursor
  */
-unsigned int defaultbg = 256;
-unsigned int defaultfg = 257;
+ unsigned int defaultfg = 257;
+ unsigned int defaultbg = 256;
 static unsigned int defaultcs = 257;
 static unsigned int defaultrcs = 256;
 

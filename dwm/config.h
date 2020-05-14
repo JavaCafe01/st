@@ -35,13 +35,13 @@ static const char col_cyan[]          = "#81A1C1";
 //};
 
 /* colors */
-static const char col_black[]  = "#20242c";
-static const char col_gray[]   = "#2E3440";
-static const char col_white[]  = "#dfe4ed";
-static const char col_cyan[]   = "#88c0d0";
+static const char col_black[]  = "#1d2021";
+static const char col_gray[]   = "#252a30";
+static const char col_white[]  = "#a9c0c2";
+static const char col_cyan[]   = "#9a6656";
 static const char *colors[][3] = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_white, col_black, col_gray },
+	[SchemeNorm] = { col_white, col_black, col_cyan },
 	[SchemeSel]  = { col_cyan,  col_gray,  col_cyan  },
 };
 
@@ -62,7 +62,7 @@ static const unsigned int alphas[][3] = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5"};
-//static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+//static const char *tags[] = { "", "", "", "", "" };
 
 
 static const Rule rules[] = {
