@@ -29,7 +29,7 @@
 ## Autostart
 
 Don't forget to create an `autostart.sh` file in the `~/.dwm` directory. For example,
-    ```bash
+```bash
 #! /bin/bash
 
 #  Compositor
@@ -47,4 +47,3 @@ Don't forget to create an `autostart.sh` file in the `~/.dwm` directory. For exa
 # For extra bitmap fonts
     xset +fp /home/javacafe01/.local/share/fonts
     xset fp rehash
-    ```
