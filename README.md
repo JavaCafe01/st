@@ -10,10 +10,9 @@
 <b>👻 Gokul's dwm Setup 👻</b>
 </p>
 
-<img src="https://preview.redd.it/x6g0f44zuez41.png?width=960&crop=smart&auto=webp&s=07d763ffd64f3e892948174e16b0d315530ffab5" alt="img" align="center" width="400px">
-
-
-
+<p align="center">
+<img src="https://preview.redd.it/x6g0f44zuez41.png?width=960&crop=smart&auto=webp&s=07d763ffd64f3e892948174e16b0d315530ffab5" alt="img" width="800px">
+</p>
 
 ## System Info
 
@@ -25,8 +24,8 @@
 + **File Manager**: thunar
 + **Launcher**: dmenu
 + **Browser**: firefox
-+ **Color Scheme**: Nord
-+ **GTK Theme**: oomix generated
++ **Color Scheme**: Custom
++ **GTK Theme**: wpg generated
 
 ## Autostart
 
@@ -44,8 +43,8 @@ Don't forget to create an `autostart.sh` file in the `~/.dwm` directory. For exa
     dwmblocks &
 
 # To update volume and brightness labels
-    pkill -RTMIN+10 dwmblocks
+    pkill -RTMIN+10 dwmblocks &
 
 # For extra bitmap fonts
-    xset +fp /home/javacafe01/.local/share/fonts
-    xset fp rehash
+    xset +fp /home/javacafe01/.local/share/fonts &
+    xset fp rehash &
