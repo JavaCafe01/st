@@ -10,7 +10,9 @@
 <b>👻 Gokul's dwm Setup 👻</b>
 </p>
 
-<img src="https://i.imgur.com/WVncGVL.png" alt="img" align="right" width="400px">
+<img src="https://preview.redd.it/x6g0f44zuez41.png?width=960&crop=smart&auto=webp&s=07d763ffd64f3e892948174e16b0d315530ffab5" alt="img" align="center" width="400px">
+
+
 
 
 ## System Info
