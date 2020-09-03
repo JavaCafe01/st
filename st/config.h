@@ -1,25 +1,34 @@
-/* Mononoki Nerd Font must be installed from AUR nerd-fonts-complete.
- * Otherwise, your default font will be Hack which is found in the standard
- * Arch repos and is listed as a dependency for this build. JoyPixels is also
- * a hard dependency and makes colored fonts and emojis possible.
+/* See LICENSE file for copyright and license details. */
+
+/*
+ * appearance
+ *
+ * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font =    "Mononoki Nerd Font:pixelsize=14:antialias=true:autohint=true";
+static char *font = "IBM Plex Mono:pixelsize=16:antialias=true:autohint=true";
+
+
+/* Spare fonts */
 static char *font2[] = {
- 	"Wuncon Siji",
-	"Hack:pixelsize=14:antialias=true:autohint=true",
+	/* "FiraCode Nerd Font:pixelsize=16:antialias=true:autohint=true", */
 };
-static int borderpx = 15;
+
+
+
+static int borderpx = 30;
 
 /*
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
- * 2: utmp option
+ * 2: scroll and/or utmp
  * 3: SHELL environment variable
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
 static char *shell = "/bin/sh";
 char *utmp = NULL;
+/* scroll program: to enable use a string like "scroll" */
+char *scroll = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
 /* identification sequence returned in DA and DECID */
@@ -43,9 +52,18 @@ static unsigned int tripleclicktimeout = 600;
 /* alt screens */
 int allowaltscreen = 1;
 
-/* frames per second st should at maximum draw to the screen */
-static unsigned int xfps = 120;
-static unsigned int actionfps = 30;
+/* allow certain non-interactive (insecure) window operations such as:
+   setting the clipboard text */
+int allowwindowops = 0;
+
+/*
+ * draw latency range in ms - from new content/keypress/etc until drawing.
+ * within this range, st draws when content stops arriving (idle). mostly it's
+ * near minlatency, but it waits longer for slow updates to avoid partial draw.
+ * low minlatency will tear/flicker more, as it can "detect" idle too early.
+ */
+static double minlatency = 8;
+static double maxlatency = 33;
 
 /*
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
@@ -57,6 +75,18 @@ static unsigned int blinktimeout = 800;
  * thickness of underline and bar cursors
  */
 static unsigned int cursorthickness = 2;
+
+/*
+ * 1: render most of the lines/blocks characters without using the font for
+ *    perfect alignment between cells (U2500 - U259F except dashes/diagonals).
+ *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
+ * 0: disable (render all U25XX glyphs normally from the font).
+ */
+const int boxdraw = 1;
+const int boxdraw_bold = 0;
+
+/* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
+const int boxdraw_braille = 1;
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -84,51 +114,42 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-/* bg opacity 
- * 0xff is no transparency.
- * 0xee adds wee bit of transparency.
- * Play with the value to get desired transparency.
- */
-unsigned int alpha = 0xff; 
-
-
-
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#1f2223", /* black   */
-  [1] = "#493434", /* red     */
-  [2] = "#713f3f", /* green   */
-  [3] = "#535454", /* yellow  */
-  [4] = "#545c5c", /* blue    */
-  [5] = "#eb2f2f", /* magenta */
-  [6] = "#848484", /* cyan    */
-  [7] = "#a7a7a7", /* white   */
+  [0] = "#292b34", /* black   */
+  [1] = "#f9929b", /* red     */
+  [2] = "#7ed491", /* green   */
+  [3] = "#fbdf90", /* yellow  */
+  [4] = "#a3b8ef", /* blue    */
+  [5] = "#ccaced", /* magenta */
+  [6] = "#9ce5c0", /* cyan    */
+  [7] = "#ffffff", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#4f4f4f", /* black   */
-  [9]  = "#493434", /* red     */
-  [10] = "#713f3f", /* green   */
-  [11] = "#535454", /* yellow  */
-  [12] = "#545c5c", /* blue    */
-  [13] = "#eb2f2f", /* magenta */
-  [14] = "#848484", /* cyan    */
-  [15] = "#a7a7a7", /* white   */
+  [8]  = "#585e74", /* black   */
+  [9]  = "#fca2aa", /* red     */
+  [10] = "#a5d4af", /* green   */
+  [11] = "#fbeab9", /* yellow  */
+  [12] = "#bac8ef", /* blue    */
+  [13] = "#d7c1ed", /* magenta */
+  [14] = "#c7e5d6", /* cyan    */
+  [15] = "#eaeaea", /* white   */
 
   /* special colors */
-  [256] = "#1f2223", /* background */
-  [257] = "#a7a7a7", /* foreground */
+  [256] = "#30333d", /* background */
+  [257] = "#ffffff", /* foreground */
 };
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor
+ * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 257;
 unsigned int defaultbg = 256;
 static unsigned int defaultcs = 257;
-static unsigned int defaultrcs = 256;
+static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
@@ -172,10 +193,10 @@ static uint forcemousemod = ShiftMask;
  */
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
-	{ XK_ANY_MOD,           Button4, kscrollup,      {.i = 3},      0, /* !alt */ -1 },
-	{ XK_ANY_MOD,           Button5, kscrolldown,    {.i = 3},      0, /* !alt */ -1 },
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
+	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
+	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
 	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
 };
 
@@ -189,16 +210,14 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_K,           zoom,           {.f = +1} },
-	{ TERMMOD,              XK_J,           zoom,           {.f = -1} },
-	{ TERMMOD,              XK_U,           zoomreset,      {.f =  0} },
+	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
+	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
+	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ TERMMOD,              XK_Page_Up,     kscrollup,      {.i =  1} },
-	{ TERMMOD,              XK_Page_Down,   kscrolldown,    {.i =  1} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };

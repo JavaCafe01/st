@@ -1,4 +1,0 @@
-#!/bin/sh
-
-backlight="$(xbacklight | sed 's/\..*//')"
-printf "%s%%\n" "  $backlight"
