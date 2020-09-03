@@ -1,50 +1,39 @@
 <p align="center">
-<img width="15%" src="https://github.com/javacafe01.png" />
+<b>Suckless - software that sucks less? or more? Whatever dude...</b>
 </p>
+
+
+## dwm
+
+> Preview
 
 <p align="center">
-<b>Suckless - software that sucks less</b>
+<img src="https://imgur.com/qzoyt1e.png" alt="img" width="700px">
 </p>
+
+Dwm has lots of patches, including ipc (for polybar), so adding more patches will probably break it.
+
+## st
+
+> Preview
 
 <p align="center">
-<b>👻 Gokul's dwm Setup 👻</b>
+<img src="https://imgur.com/kh3RXNJ.png" alt="img" width="300px">
 </p>
+
+Includes box draw. 
+
+Featuring [fetish](https://github.com/6gk/fet.sh) by some talented turtle.
+
+## dmenu
+
+> Preview
 
 <p align="center">
-<img src="https://preview.redd.it/x6g0f44zuez41.png?width=960&crop=smart&auto=webp&s=07d763ffd64f3e892948174e16b0d315530ffab5" alt="img" width="800px">
+<img src="https://imgur.com/1C1HC7x.png" alt="img" width="300px">
 </p>
 
-## System Info
+Features double borders and hard coded variables.
 
-+ **WM**: dwm
-+ **OS**: Manjaro
-+ **Shell**: zsh
-+ **Terminal**: st
-+ **Editor**: neovim
-+ **File Manager**: thunar
-+ **Launcher**: dmenu
-+ **Browser**: firefox
-+ **Color Scheme**: Custom
-+ **GTK Theme**: wpg generated
-
-## Autostart
-
-Don't forget to create an `autostart.sh` file in the `~/.dwm` directory. For example,
-```bash
-#! /bin/bash
-
-#  Compositor
-    picom &
-
-# Wallpaper
-    nitrogen --restore &
-
-# Status Bar
-    dwmblocks &
-
-# To update volume and brightness labels
-    pkill -RTMIN+10 dwmblocks &
-
-# For extra bitmap fonts
-    xset +fp /home/javacafe01/.local/share/fonts &
-    xset fp rehash &
+## Words of Wisdom
+This isn't really my dots, its just the setup I'm planning to have with my new/old thinkpad. If you need help, **I will not help**.
