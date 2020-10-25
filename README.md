@@ -2,17 +2,6 @@
 <b>Suckless - software that sucks less? or more? Whatever dude...</b>
 </p>
 
-
-## dwm
-
-> Preview
-
-<p align="center">
-<img src="https://imgur.com/qzoyt1e.png" alt="img" width="700px">
-</p>
-
-Dwm has lots of patches, including ipc (for polybar), so adding more patches will probably break it.
-
 ## st
 
 > Preview
