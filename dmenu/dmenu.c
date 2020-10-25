@@ -186,8 +186,8 @@ drawmenu(void)
 	} 
 
     drw_setscheme(drw,  scheme[SchemeSel]);
-    drw_rect(drw, padding, padding, mw - (padding * 2), mh - (padding * 2), 0, 1);
-	drw_map(drw, win, 0, 0, mw, mh - (padding - 1));
+    //drw_rect(drw, padding, padding, mw - (padding * 2), mh - (padding * 2), 0, 1);
+	drw_map(drw, win, 0, 0, mw, mh - (padding - 10));// used to be padding - 1
 }
 
 static void
