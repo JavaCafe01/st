@@ -5,16 +5,16 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "IBM Plex Mono:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Terminus:pixelsize=12";
 
 /* Spare fonts */
 static char *font2[] = {
-   "FiraCode Nerd Font Mono:pixelsize=16:antialias=true:autohint=true",
+   "FiraCode Nerd Font Mono:pixelsize=12:antialias=true:autohint=true",
 };
 
 
 
-static int borderpx = 30;
+static int borderpx = 20;
 
 /*
  * What program is execed by st depends of these precedence rules:
