@@ -5,11 +5,12 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Terminus:pixelsize=12";
+static char *font = "JetBrains Mono:antialias=true:pixelsize=16";
 
 /* Spare fonts */
 static char *font2[] = {
-   "FiraCode Nerd Font Mono:pixelsize=12:antialias=true:autohint=true",
+   "FiraCode Nerd Font Mono:pixelsize=16:antialias=true",
+   "Blobmoji:pixelsize:16:autohint=true"
 };
 
 
@@ -117,7 +118,7 @@ unsigned int tabspaces = 8;
 static const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#292b34", /* black   */
+  [0] = "#29343d", /* black   */
   [1] = "#f9929b", /* red     */
   [2] = "#7ed491", /* green   */
   [3] = "#fbdf90", /* yellow  */
@@ -127,7 +128,7 @@ static const char *colorname[] = {
   [7] = "#ffffff", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#585e74", /* black   */
+  [8]  = "#3b4b58", /* black   */
   [9]  = "#fca2aa", /* red     */
   [10] = "#a5d4af", /* green   */
   [11] = "#fbeab9", /* yellow  */
@@ -137,7 +138,7 @@ static const char *colorname[] = {
   [15] = "#eaeaea", /* white   */
 
   /* special colors */
-  [256] = "#30333d", /* background */
+  [256] = "#1a2026", /* background */
   [257] = "#ffffff", /* foreground */
 };
 

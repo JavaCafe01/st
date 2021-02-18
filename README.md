@@ -1,28 +1,34 @@
-<p align="center">
-<b>Suckless - software that sucks less? or more? Whatever dude...</b>
-</p>
+st - simple terminal
+--------------------
+st is a simple terminal emulator for X which sucks less.
 
-## st
 
-> Preview
+Requirements
+------------
+In order to build st you need the Xlib header files.
 
-<p align="center">
-<img src="https://imgur.com/kh3RXNJ.png" alt="img" width="300px">
-</p>
 
-Includes box draw. 
+Installation
+------------
+Edit config.mk to match your local setup (st is installed into
+the /usr/local namespace by default).
 
-Featuring [fetish](https://github.com/6gk/fet.sh) by some talented turtle.
+Afterwards enter the following command to build and install st (if
+necessary as root):
 
-## dmenu
+    make clean install
 
-> Preview
 
-<p align="center">
-<img src="https://imgur.com/1C1HC7x.png" alt="img" width="300px">
-</p>
+Running st
+----------
+If you did not install st with make clean install, you must compile
+the st terminfo entry with the following command:
 
-Features double borders and hard coded variables.
+    tic -sx st.info
 
-## Words of Wisdom
-This isn't really my dots, its just the setup I'm planning to have with my new/old thinkpad. If you need help, **I will not help**.
+See the man page for additional details.
+
+Credits
+-------
+Based on Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.
+
