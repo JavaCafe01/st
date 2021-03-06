@@ -5,11 +5,11 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrains Mono:antialias=true:pixelsize=16";
+static char *font = "Sarasa Term CL:antialias=true:pixelsize=16";
 
 /* Spare fonts */
 static char *font2[] = {
-   "FiraCode Nerd Font Mono:pixelsize=16:antialias=true",
+   "FiraCode Nerd Font Mono:pixelsize=16",
    "Blobmoji:pixelsize:16:autohint=true"
 };
 
