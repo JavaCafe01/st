@@ -8,6 +8,7 @@ My build of st contains these patches:
 * box draw
 * font 2 (allows for emojis)
 * scroll back
+* ligatures
 
 The patches are in the `patches` folder.
 
