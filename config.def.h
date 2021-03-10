@@ -5,7 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Sarasa Term CL:antialias=true:pixelsize=16";
+//static char *font = "Sarasa Term CL:antialias=true:pixelsize=16";
+
+static char *font = "Fira Code:antialias=true:pixelsize=16";
+
 
 /* Spare fonts */
 static char *font2[] = {
