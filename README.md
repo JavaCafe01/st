@@ -1,4 +1,4 @@
-![st](https://imgur.com/tunJdIY.png)
+![st](https://imgur.com/B1i036L.png)
 
 # st - simple terminal
 
