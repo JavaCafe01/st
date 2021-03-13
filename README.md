@@ -24,6 +24,8 @@ paru -S libxft-bgra-git
 
 ### Installation
 
+After you have cloned the repo and copied the files into your config, go to .config/st.  
+
 Edit config.mk to match your local setup (st is installed into
 the /usr/local namespace by default).
 
